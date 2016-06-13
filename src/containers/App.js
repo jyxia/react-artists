@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import ArtistsContainer from '../components/Artists'
@@ -12,12 +12,24 @@ class App extends Component {
     const { isFetching, showError, artists, fetchArtistsIfNeed, dismissErrors } = this.props
     return (
       <div className="main">
-        <SearchBox fetchArtistsIfNeed={fetchArtistsIfNeed} dismissErrors={dismissErrors} />
+        <SearchBox
+          fetchArtistsIfNeed={fetchArtistsIfNeed}
+          dismissErrors={dismissErrors}
+          isFetching={isFetching}
+        />
         <Message showError={showError} isFetching={isFetching} />
         <ArtistsContainer showError={showError} artists={artists} />
       </div>
     )
   }
+}
+
+App.propTypes = {
+  isFetching: PropTypes.bool.isRequired,
+  showError: PropTypes.bool,
+  artists: PropTypes.array.isRequired,
+  fetchArtistsIfNeed: PropTypes.func.isRequired,
+  dismissErrors: PropTypes.func.isRequired
 }
 
 function mapStateToProps(state) {

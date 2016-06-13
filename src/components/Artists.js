@@ -1,11 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import Artist from './Artist/Artist'
-import Message from './Message'
 
 export default class Artists extends Component {
   render() {
-    const { showError, artists } = this.props
-    const className = showError ? "container hidden" : "container"
+    const { showError, artists, isFetching } = this.props
+    const className = showError || isFetching ? 'container hidden' : 'container'
     return (
       <div className={className}>
         {
@@ -16,4 +15,10 @@ export default class Artists extends Component {
       </div>
     )
   }
+}
+
+Artists.propTypes = {
+  artists: PropTypes.array.isRequired,
+  isFetching: PropTypes.bool,
+  showError: PropTypes.bool
 }

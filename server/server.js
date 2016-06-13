@@ -10,6 +10,14 @@ var port = 3000;
 var app = new Express();
 var isDevelopmentEnvironment = (process.env.NODE_ENV !== "production");
 
+app.use(function(req, res, next) {
+  // CORS middleware, allowing all just for demo
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
+
 if (isDevelopmentEnvironment) {
   var compiler = webpack(config);
   app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
@@ -25,6 +33,7 @@ app.get("/", function(req, res) {
   res.sendFile(path.resolve('./src/index.html'));
 });
 
+// set up routes here
 routes.artists(app);
 
 app.listen(port, function(error) {

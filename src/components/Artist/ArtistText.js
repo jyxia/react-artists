@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 
 export default class ArtistText extends Component {
 
@@ -10,4 +10,9 @@ export default class ArtistText extends Component {
       </span>
     )
   }
+}
+
+ArtistText.propTypes = {
+  text: PropTypes.string.isRequired,
+  description: PropTypes.string
 }

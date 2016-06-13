@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import ArtistPhoto from './ArtistPhoto'
 import ArtistText from './ArtistText'
 
@@ -11,4 +11,8 @@ export default class Artist extends Component {
       </div>
     )
   }
+}
+
+Artist.propTypes = {
+  artist: PropTypes.object.isRequired
 }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 
 class SearchBox extends Component {
 
@@ -38,6 +38,11 @@ class SearchBox extends Component {
       </div>
     )
   }
+}
+
+SearchBox.propTypes = {
+  dismissErrors: PropTypes.func.isRequired,
+  fetchArtistsIfNeed: PropTypes.func.isRequired
 }
 
 export default SearchBox

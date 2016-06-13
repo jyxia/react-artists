@@ -18,33 +18,33 @@ export default function artistList(state = {
   items: []
 }, action) {
   switch (action.type) {
-    case REQUEST_DEFAULT_ARTISTS:
-      return Object.assign({}, state, {
-        isFetching: false,
-        showError: false,
-        items: preloadedArtists
-      })
-    case REQUEST_ARTISTS:
-      return Object.assign({}, state, {
-        isFetching: true,
-        showError: false
-      })
-    case RECEIVE_ARTISTS:
-      return Object.assign({}, state, {
-        isFetching: false,
-        showError: false,
-        items: getArtists(action.artists)
-      })
-    case RECEIVE_NO_ARTISTS:
-      return Object.assign({}, state, {
-        isFetching: false,
-        showError: true
-      })
-    case DISMISS_ERROR:
-      return Object.assign({}, state, {
-        showError: false
-      })
-    default:
-      return state
+  case REQUEST_DEFAULT_ARTISTS:
+    return Object.assign({}, state, {
+      isFetching: false,
+      showError: false,
+      items: preloadedArtists
+    })
+  case REQUEST_ARTISTS:
+    return Object.assign({}, state, {
+      isFetching: true,
+      showError: false
+    })
+  case RECEIVE_ARTISTS:
+    return Object.assign({}, state, {
+      isFetching: false,
+      showError: false,
+      items: getArtists(action.artists)
+    })
+  case RECEIVE_NO_ARTISTS:
+    return Object.assign({}, state, {
+      isFetching: false,
+      showError: true
+    })
+  case DISMISS_ERROR:
+    return Object.assign({}, state, {
+      showError: false
+    })
+  default:
+    return state
   }
 }

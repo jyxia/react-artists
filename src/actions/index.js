@@ -41,7 +41,7 @@ function dismissError() {
 function fetchArtists(keywords) {
   return dispatch => {
     dispatch(requestArtists(keywords))
-    return fetch(`/api/search?keywords=${keywords}`)
+    return fetch(`http://localhost:3000/api/search?keywords=${keywords}`)
       .then(response => response.json())
       .then(json => {
         if (json.length > 0) {
@@ -54,7 +54,7 @@ function fetchArtists(keywords) {
 }
 
 export function fetchArtistsIfNeed(keywords) {
-  return (dispatch, getState) => {
+  return dispatch => {
     if (!keywords) return dispatch(requestDefaultArtists())
     return dispatch(fetchArtists(keywords))
   }
