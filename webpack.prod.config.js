@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 var path = require('path');
 
@@ -13,6 +14,11 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
+    new HtmlWebpackPlugin({
+      template: 'src/index.tmpl.html',
+      inject: 'body',
+      filename: 'index.html'
+    }),
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
         warnings: false,

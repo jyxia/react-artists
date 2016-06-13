@@ -1,6 +1,6 @@
 import { REQUEST_ARTISTS, RECEIVE_ARTISTS, REQUEST_DEFAULT_ARTISTS,
-  RECEIVE_NO_ARTISTS, DISMISS_ERROR } from '../actions'
-import preloadedArtists from '../data'
+  RECEIVE_NO_ARTISTS } from '../actions'
+import preloadedArtists from '../presetData'
 
 function getArtists(artists) {
   return artists.map(artist => {
@@ -14,35 +14,26 @@ function getArtists(artists) {
 
 export default function artistList(state = {
   isFetching: false,
-  showError: false,
   items: []
 }, action) {
   switch (action.type) {
   case REQUEST_DEFAULT_ARTISTS:
     return Object.assign({}, state, {
       isFetching: false,
-      showError: false,
       items: preloadedArtists
     })
   case REQUEST_ARTISTS:
     return Object.assign({}, state, {
-      isFetching: true,
-      showError: false
+      isFetching: true
     })
   case RECEIVE_ARTISTS:
     return Object.assign({}, state, {
       isFetching: false,
-      showError: false,
       items: getArtists(action.artists)
     })
   case RECEIVE_NO_ARTISTS:
     return Object.assign({}, state, {
-      isFetching: false,
-      showError: true
-    })
-  case DISMISS_ERROR:
-    return Object.assign({}, state, {
-      showError: false
+      isFetching: false
     })
   default:
     return state

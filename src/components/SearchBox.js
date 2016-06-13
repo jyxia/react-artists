@@ -13,7 +13,9 @@ class SearchBox extends Component {
     this.setState({
       inputText: event.target.value
     })
-    if (!event.target.value) this.props.dismissErrors()
+    if (!event.target.value) {
+      this.props.sendMessages('')
+    }
   }
 
   handleSubmit(event) {
@@ -33,7 +35,7 @@ class SearchBox extends Component {
             value={this.state.inputText}
             onChange={this.handleChange.bind(this)}
           />
-          <button type="submit" value="Search" disabled={disabled}>Search</button>
+          <button type="submit" disabled={disabled}>Search</button>
         </form>
       </div>
     )
@@ -41,7 +43,7 @@ class SearchBox extends Component {
 }
 
 SearchBox.propTypes = {
-  dismissErrors: PropTypes.func.isRequired,
+  sendMessages: PropTypes.func.isRequired,
   fetchArtistsIfNeed: PropTypes.func.isRequired
 }
 

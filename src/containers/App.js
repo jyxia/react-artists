@@ -9,16 +9,20 @@ import * as Actions from '../actions'
 class App extends Component {
 
   render() {
-    const { isFetching, showError, artists, fetchArtistsIfNeed, dismissErrors } = this.props
+    const { isFetching, artists, fetchArtistsIfNeed, sendMessages, alert } = this.props
+    const hideArtists = !alert
     return (
       <div className="main">
         <SearchBox
           fetchArtistsIfNeed={fetchArtistsIfNeed}
-          dismissErrors={dismissErrors}
-          isFetching={isFetching}
+          sendMessages={sendMessages}
         />
-        <Message showError={showError} isFetching={isFetching} />
-        <ArtistsContainer showError={showError} artists={artists} />
+        <Message message={alert} />
+        <ArtistsContainer
+          hideArtists={!hideArtists}
+          isFetching={isFetching}
+          artists={artists}
+        />
       </div>
     )
   }
@@ -26,23 +30,23 @@ class App extends Component {
 
 App.propTypes = {
   isFetching: PropTypes.bool.isRequired,
-  showError: PropTypes.bool,
+  alert: PropTypes.string.isRequired,
   artists: PropTypes.array.isRequired,
   fetchArtistsIfNeed: PropTypes.func.isRequired,
-  dismissErrors: PropTypes.func.isRequired
+  sendMessages: PropTypes.func.isRequired
 }
 
 function mapStateToProps(state) {
-  const { artistList } = state
-  const { isFetching, showError, items: artists } = artistList || {
+  const { artistList, message } = state
+  const { isFetching, items: artists } = artistList || {
     isFetching: true,
-    showError: false,
     items: []
   }
+  const alert = message || ''
   return {
     isFetching,
-    showError,
-    artists
+    artists,
+    alert
   }
 }
 

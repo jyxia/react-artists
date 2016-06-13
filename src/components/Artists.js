@@ -3,8 +3,8 @@ import Artist from './Artist/Artist'
 
 export default class Artists extends Component {
   render() {
-    const { showError, artists, isFetching } = this.props
-    const className = showError || isFetching ? 'container hidden' : 'container'
+    const { hideArtists, artists, isFetching } = this.props
+    const className = hideArtists || isFetching ? 'container hidden' : 'container'
     return (
       <div className={className}>
         {
@@ -20,5 +20,5 @@ export default class Artists extends Component {
 Artists.propTypes = {
   artists: PropTypes.array.isRequired,
   isFetching: PropTypes.bool,
-  showError: PropTypes.bool
+  hideArtists: PropTypes.bool
 }

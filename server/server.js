@@ -30,7 +30,11 @@ app.use(Express.static(path.resolve('./dist'), {
 }));
 
 app.get("/", function(req, res) {
-  res.sendFile(path.resolve('./src/index.html'));
+  if (isDevelopmentEnvironment) {
+    res.sendFile(path.resolve('./src/index.html'));
+  } else {
+    res.sendFile(path.resolve('./dist/index.html'));
+  }
 });
 
 // set up routes here
@@ -40,6 +44,6 @@ app.listen(port, function(error) {
   if (error) {
     console.error(error);
   } else {
-    console.info("==> 🌎 Listening on port %s. Open up http://localhost:%s/ in your browser.", port, port);
+    console.info("==> 🌎  Listening on port %s. Open up http://localhost:%s/ in your browser.", port, port);
   }
 });
