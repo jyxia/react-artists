@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import artistList from './reducer'
+import artistList from './artistsReducer'
 
 const rootReducer = combineReducers({
   artistList

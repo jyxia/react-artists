@@ -3,23 +3,18 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import ArtistsContainer from '../components/Artists'
 import SearchBox from '../components/SearchBox'
+import Message from '../components/Message'
 import * as Actions from '../actions'
 
 class App extends Component {
-  componentDidMount() {
-    const { fetchArtistsIfNeed } = this.props
-    fetchArtistsIfNeed()
-  }
 
   render() {
-    const { isFetching, artists } = this.props
+    const { isFetching, showError, artists, fetchArtistsIfNeed, dismissErrors } = this.props
     return (
-      <div>
-        <SearchBox />
-        {
-          isFetching ? <h3> Loading... </h3>
-          : <ArtistsContainer artists={artists} />
-        }
+      <div className="main">
+        <SearchBox fetchArtistsIfNeed={fetchArtistsIfNeed} dismissErrors={dismissErrors} />
+        <Message showError={showError} isFetching={isFetching} />
+        <ArtistsContainer showError={showError} artists={artists} />
       </div>
     )
   }
@@ -27,12 +22,14 @@ class App extends Component {
 
 function mapStateToProps(state) {
   const { artistList } = state
-  const { isFetching, items: artists } = artistList || {
+  const { isFetching, showError, items: artists } = artistList || {
     isFetching: true,
+    showError: false,
     items: []
   }
   return {
     isFetching,
+    showError,
     artists
   }
 }

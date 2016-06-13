@@ -13,13 +13,16 @@ class SearchBox extends Component {
     this.setState({
       inputText: event.target.value
     })
+    if (!event.target.value) this.props.dismissErrors()
   }
 
   handleSubmit(event) {
     event.preventDefault()
+    this.props.fetchArtistsIfNeed(this.state.inputText)
   }
 
   render() {
+    const disabled = !this.state.inputText
     return (
       <div className="header">
         <h1> Popular artists </h1>
@@ -30,7 +33,7 @@ class SearchBox extends Component {
             value={this.state.inputText}
             onChange={this.handleChange.bind(this)}
           />
-          <input type="submit" value="Search" />
+          <button type="submit" value="Search" disabled={disabled}>Search</button>
         </form>
       </div>
     )

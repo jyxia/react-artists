@@ -6,8 +6,15 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import configureStore from './store/configureStore'
 import App from './containers/App'
+import preloadedArtists from './data'
 
-const store = configureStore()
+const preloadedState = {
+  artistList: {
+    isFetching: false,
+    items: preloadedArtists
+  }
+}
+const store = configureStore(preloadedState)
 const rootElement = document.getElementById('app')
 
 render(

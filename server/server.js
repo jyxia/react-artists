@@ -4,6 +4,7 @@ var webpackHotMiddleware = require('webpack-hot-middleware');
 var config = require('../webpack.config')
 var path = require('path');
 var Express = require('express');
+var routes = require('./routes');
 var port = 3000;
 
 var app = new Express();
@@ -23,6 +24,8 @@ app.use(Express.static(path.resolve('./dist'), {
 app.get("/", function(req, res) {
   res.sendFile(path.resolve('./src/index.html'));
 });
+
+routes.artists(app);
 
 app.listen(port, function(error) {
   if (error) {

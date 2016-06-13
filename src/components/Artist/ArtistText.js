@@ -4,7 +4,10 @@ export default class ArtistText extends Component {
 
   render() {
     return (
-      <p> {this.props.text} </p>
+      <span>
+        <h3> {this.props.text} </h3>
+        <p> {this.props.description} </p>
+      </span>
     )
   }
 }

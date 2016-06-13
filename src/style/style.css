@@ -1,18 +1,18 @@
 * {
 	padding: 0;
 	margin: 0;
+	font-size: 12px;
   box-sizing: border-box;
-  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family:  Helvetica, "Helvetica Neue", Arial, "Lucida Grande", sans-serif;
 }
 
-.header {
-	width: 80%;
-	margin: 30px auto;
-	overflow: hidden;
+.main {
+	width: 60%;
+	margin: 2% 2% 2% 15%;
 }
 
 .header h1 {
-	font: 50px/1.0;
+	font-size: 4em;
 	font-weight: 400;
 	text-transform: uppercase;
 	margin: 0 0 15px 2%;
@@ -22,34 +22,50 @@
   margin: 0 0 15px 2%;
 }
 
-.header p {
-	color: #797478;
-	font: 10px/1.5 Verdana, Helvetica, sans-serif;
-	margin: 0 0 0 2%;
+.header form * {
+	margin-right: 1em;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	padding: .5em 1em;
+	color: #333;
+}
+
+.header form button {
+  background-color: #fff;
+}
+
+.header form button:hover {
+	background-color: #eee;
+	cursor: pointer;
 }
 
 .container {
-	width: 80%;
-	margin: 30px auto;
 	overflow: hidden;
+	display: flex;
+	flex-flow: row wrap;
 }
 
-/*GALLERY STYLES*/
+.hidden {
+	display: none;
+}
+
+.message h3 {
+	margin-left: 2%;
+	color: #DF7514;
+	font-size: 2em;
+}
+
 .galleryItem {
 	color: #797478;
-	font: 10px/1.5 Verdana, Helvetica, sans-serif;
+	font: 1.4em Verdana, Helvetica, sans-serif;
 	width: 29.3333%;
-	margin:  2% 2% 50px 2%;
-	float: left;
+	margin:  2% 2% 2em 2%;
 	transition: color 0.5s ease;
-	display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
 }
 
 .galleryItem h3 {
 	text-transform: uppercase;
+	font-size: 1.5em;
 	line-height: 2;
 }
 
@@ -62,29 +78,44 @@
 	border-radius: 5px;
 }
 
-.clearfix:after {
+.clearfix {
     content: "";
     display: table;
     clear: both;
 }
 
 /* MEDIA QUERIES*/
-/*@media only screen and (max-width : 940px),
-only screen and (max-device-width : 940px){
-	.galleryItem {width: 21%;}
-}*/
-
-@media only screen and (max-width : 768px),
-only screen and (max-device-width : 768px){
-	.galleryItem {width: 46%;}
-	.header h1 {font-size: 26px;}
+@media only screen and (max-width: 768px),
+only screen and (max-device-width: 768px) {
+	.main {
+		width: 90%;
+		margin: 30px auto;
+		overflow: hidden;
+	}
+	.galleryItem {
+		width: 46%;
+	}
+	.galleryItem img {
+		width: 100%;
+		height: auto;
+	}
+	.galleryItem h3 {
+		font-size: 1.2em;
+	}
+	.header h1 {
+		font-size: 2.5em;
+	}
 }
 
-@media only screen and (max-width : 320px),
-only screen and (max-device-width : 320px) {
-	.galleryItem {width: 96%;}
-	.galleryItem img {width: 96%;}
-	.galleryItem h3 {font-size: 18px;}
-	.galleryItem p, .header p {font-size: 18px;}
-	.header h1 {font-size: 50px;}
+@media only screen and (max-width: 320px),
+only screen and (max-device-width: 320px) {
+	.galleryItem h3 {
+		font-size: 1em;
+	}
+	.galleryItem p, .header p {
+		font-size: 0.8em;
+	}
+	.header h1 {
+		font-size: 2em;
+	}
 }
