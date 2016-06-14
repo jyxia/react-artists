@@ -34,11 +34,14 @@
 #### Express (Step 2)
 * Builds node (API) services.
   * Search API: http://localhost:3000/api/search
-* Hosts web files (`index.html`).
+* Provide web services, host static files (e.g. `index.html`).
 * All server-side code is in [./server](./server) folder.
 
 #### Babel and Linting
 * Use *eslint* to make sure the code is linted. Here [.eslintrc](./eslintrc) is the list of rules that are used in this project.
+
+#### Others
+* Version control: `git`. `develop` -> `master`
 
 ## Future work
 Due to the limited time, I didn't add testings for the code. In the future, testing code can be added.
