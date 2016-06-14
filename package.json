@@ -1,5 +1,5 @@
 {
-  "name": "artists",
+  "name": "react-artists",
   "version": "1.0.0",
   "description": "search artists",
   "main": "./src/index.js",

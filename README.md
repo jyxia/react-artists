@@ -1,5 +1,5 @@
 ## Install and Running
-* `cd artists`
+* `cd react-artists`
 * `npm install`
 * To start the development
   1. Run `npm start` or `npm run start`
@@ -10,7 +10,8 @@
   1. Run`npm run build`. Production files are all generated in [./dist](./dist).
   2. Wait until `webpack` finishes building all files, then run `npm run web-server` to start node service.
   3. Navigate to http://localhost:3000 or open `index.html` directly from [`./dist`](./dist) in your browser of choice.
-* You can also remove `dist` folder by running `npm run clean`.
+* To clean `dist`
+  1. run `npm run clean`.
 
 > **Note:** In `dev` mode, `redux-logger` and webpack hot modules are included for development purpose. In `build` or `prod` mode, these dev tools are removed and `dist` folder gets cleaned every time.
 
@@ -41,7 +42,8 @@
 * Use *eslint* to make sure the code is linted. Here [.eslintrc](./eslintrc) is the list of rules that are used in this project.
 
 #### Others
-* Version control: `git`. `develop` -> `master`
+* Version control: `git`. `develop` -> `master`.
+* Tested browsers: Chrome v50, Firefox v47+, Safari v9.
 
 ## Future work
 Due to the limited time, I didn't add testings for the code. In the future, testing code can be added.
