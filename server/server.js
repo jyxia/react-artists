@@ -8,7 +8,7 @@ var routes = require('./routes');
 var port = 3000;
 
 var app = new Express();
-var isDevelopmentEnvironment = (process.env.NODE_ENV !== "production");
+var isDevelopmentEnvironment = (process.env.NODE_ENV !== 'production');
 
 app.use(function(req, res, next) {
   // CORS middleware, allowing all just for demo
@@ -29,7 +29,7 @@ app.use(Express.static(path.resolve('./dist'), {
   index: false
 }));
 
-app.get("/", function(req, res) {
+app.get('/', function(req, res) {
   if (isDevelopmentEnvironment) {
     res.sendFile(path.resolve('./src/index.html'));
   } else {
@@ -37,13 +37,13 @@ app.get("/", function(req, res) {
   }
 });
 
-// set up routes here
+// set up routes.
 routes.artists(app);
 
 app.listen(port, function(error) {
   if (error) {
     console.error(error);
   } else {
-    console.info("==> 🌎  Listening on port %s. Open up http://localhost:%s/ in your browser.", port, port);
+    console.info('==> 🌎  Listening on port %s. Open up http://localhost:%s/ in your browser.', port, port);
   }
 });

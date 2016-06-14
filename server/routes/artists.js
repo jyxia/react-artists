@@ -2,9 +2,9 @@ var request = require('request-promise');
 
 function searchRequest(req, res) {
   var options = {
-    url: "http://api-3283.iheart.com/api/v1/catalog/searchAll",
+    url: 'http://api-3283.iheart.com/api/v1/catalog/searchAll',
     headers: {
-      accept: "application/json"
+      accept: 'application/json'
     },
     qs: {
       keywords: req.query.keywords,
@@ -16,7 +16,7 @@ function searchRequest(req, res) {
       queryTalkShow: false,
       queryTalkTheme: false,
       queryKeyword: false,
-      countryCode: "US"
+      countryCode: 'US'
     }
   };
 
@@ -35,11 +35,13 @@ function searchRequest(req, res) {
       res.send(artists.slice(0, 6));
     })
     .catch(function(err) {
-      console.log(err);
-      res.send(err);
+      console.error(err);
+      res.status(500).send({
+        error: 'Request failed'
+      });
     });
 }
 
-module.exports = function (app) {
+module.exports = function(app) {
   app.get('/api/search/', searchRequest);
 };
