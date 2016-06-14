@@ -9,7 +9,7 @@ import * as Actions from '../actions'
 class App extends Component {
 
   render() {
-    const { isFetching, artists, fetchArtistsIfNeed, sendMessages, alert } = this.props
+    const { alert, artists, fetchArtistsIfNeed, sendMessages } = this.props
     const hideArtists = !alert
     return (
       <div className="main">
@@ -20,7 +20,6 @@ class App extends Component {
         <Message message={alert} />
         <ArtistsContainer
           hideArtists={!hideArtists}
-          isFetching={isFetching}
           artists={artists}
         />
       </div>
@@ -29,7 +28,6 @@ class App extends Component {
 }
 
 App.propTypes = {
-  isFetching: PropTypes.bool.isRequired,
   alert: PropTypes.string.isRequired,
   artists: PropTypes.array.isRequired,
   fetchArtistsIfNeed: PropTypes.func.isRequired,
@@ -38,13 +36,9 @@ App.propTypes = {
 
 function mapStateToProps(state) {
   const { artistList, message } = state
-  const { isFetching, items: artists } = artistList || {
-    isFetching: true,
-    items: []
-  }
+  const artists = artistList || []
   const alert = message || ''
   return {
-    isFetching,
     artists,
     alert
   }

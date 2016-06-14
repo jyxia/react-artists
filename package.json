@@ -5,10 +5,11 @@
   "main": "./src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rimraf dist",
     "lint": "eslint ./src",
     "start": "nodemon server/server.js --ignore components --ignore node_modules",
     "web-server": "NODE_ENV=production node server/server.js",
-    "build": "NODE_ENV=production webpack -p --config ./webpack.prod.config.js --progress --profile --colors"
+    "build": "npm run clean & NODE_ENV=production webpack -p --config ./webpack.prod.config.js --progress --profile --colors"
   },
   "repository": {
     "type": "git",

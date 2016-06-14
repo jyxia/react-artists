@@ -24,7 +24,6 @@ class SearchBox extends Component {
   }
 
   render() {
-    const disabled = !this.state.inputText
     return (
       <div className="header">
         <h1> Popular artists </h1>
@@ -35,7 +34,7 @@ class SearchBox extends Component {
             value={this.state.inputText}
             onChange={this.handleChange.bind(this)}
           />
-          <button type="submit" disabled={disabled}>Search</button>
+          <button type="submit">Search</button>
         </form>
       </div>
     )
