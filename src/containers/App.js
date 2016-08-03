@@ -8,6 +8,11 @@ import * as Actions from '../actions'
 
 class App extends Component {
 
+  componentDidMount() {
+    const { fetchArtistsIfNeed } = this.props
+    fetchArtistsIfNeed('Taylor Swift')
+  }
+
   render() {
     const { alert, artists, fetchArtistsIfNeed, sendMessages } = this.props
     const hideArtists = !alert

@@ -10,20 +10,20 @@ export const SEND_MESSAGE = 'SEND_MESSAGE'
 function requestArtists(keywords) {
   return {
     type: REQUEST_ARTISTS,
-    keywords: keywords
+    keywords
   }
 }
 
 function receiveArtists(artists) {
   return {
     type: RECEIVE_ARTISTS,
-    artists: artists
+    artists
   }
 }
 
 function receiveNoArtists() {
   return {
-    type: RECEIVE_NO_ARTISTS,
+    type: RECEIVE_NO_ARTISTS
   }
 }
 
@@ -42,7 +42,7 @@ function dismissMessage() {
 function sendMessage(message) {
   return {
     type: SEND_MESSAGE,
-    message: message
+    message
   }
 }
 

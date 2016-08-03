@@ -1,5 +1,6 @@
 ## Install and Running
-* `cd react-artists`
+* Go to `react-artists` folder if you are not in.
+  1. `cd react-artists`
 * `npm install`
 * To start the development
   1. Run `npm start` or `npm run start`
@@ -7,9 +8,9 @@
 * To lint your code
   1. Run `npm run lint`
 * To start production / build
-  1. Run`npm run build`. Production files are all generated in [./dist](./dist).
+  1. Run`npm run build`. Production files are all generated into [dist](./dist).
   2. Wait until `webpack` finishes building all files, then run `npm run web-server` to start node service.
-  3. Navigate to http://localhost:3000 or open `index.html` directly from [`./dist`](./dist) in your browser of choice.
+  3. Navigate to http://localhost:3000 or open `index.html` directly from [`dist`](./dist) in your browser of choice.
 * To clean `dist`
   1. run `npm run clean`.
 
@@ -21,8 +22,8 @@
 * **`flex`** is used for responsive web designs.
 * **`autoprefixer`** takes care of `css` prefixers across different browsers.
 
-#### JS framework: React and Redux
-* See [./src](./src) folder for the code and the structure.
+#### JS framework: React and Redux (Step 1 & 2)
+* See [src](./src) folder for the code and the structure.
 
 #### Error handling (please try)
 * Add error handlings for this project to improve user experience
@@ -36,14 +37,11 @@
 * Builds node (API) services.
   * Search API: http://localhost:3000/api/search
 * Provide web services, host static files (e.g. `index.html`).
-* All server-side code is in [./server](./server) folder.
+* All server-side code is in [server](./server) folder.
 
 #### Babel and Linting
 * Use *eslint* to make sure the code is linted. Here [.eslintrc](./eslintrc) is the list of rules that are used in this project.
 
 #### Others
-* Version control: `git`. `develop` -> `master`.
-* Tested browsers: Chrome v50, Firefox v47+, Safari v9.
-
-## Future work
-Due to the limited time, I didn't add testings for the code. In the future, testing code can be added.
+* Version control: `git`. `develop` -> `master`
+* Tested browsers: Chrome v50, Firefox v47+, Safari v9+.

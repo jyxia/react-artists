@@ -9,7 +9,7 @@ import App from './containers/App'
 import preloadedArtists from './presetData'
 
 const preloadedState = {
-  artistList: preloadedArtists
+  artistList: [preloadedArtists]
 }
 const store = configureStore(preloadedState)
 const rootElement = document.getElementById('app')
