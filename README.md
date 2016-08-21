@@ -1,3 +1,6 @@
+[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy)
+--------------------------------------------------------------------------------
+
 ## Install and Running
 * Go to `react-artists` folder if you are not in.
   1. `cd react-artists`
