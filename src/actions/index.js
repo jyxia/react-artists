@@ -50,7 +50,7 @@ function fetchArtists(keywords) {
   return dispatch => {
     dispatch(requestArtists(keywords))
     dispatch(sendMessage('Loading...'))
-    return fetch(`http://localhost:3000/api/search?keywords=${keywords}`)
+    return fetch(`./api/search?keywords=${keywords}`)
       .then(response => response.json())
       .then(json => {
         if (json.length > 0) {

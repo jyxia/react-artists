@@ -1,11 +1,10 @@
-var webpack = require('webpack');
-var webpackDevMiddleware = require('webpack-dev-middleware');
-var webpackHotMiddleware = require('webpack-hot-middleware');
-var config = require('../webpack.config')
 var path = require('path');
 var Express = require('express');
 var routes = require('./routes');
-var port = 3000;
+var cfenv = require('cfenv');
+// get the app environment from Cloud Foundry
+var appEnv = cfenv.getAppEnv();
+var port = appEnv.port || 3000;
 
 var app = new Express();
 var isDevelopmentEnvironment = (process.env.NODE_ENV !== 'production');
@@ -19,6 +18,10 @@ app.use(function(req, res, next) {
 });
 
 if (isDevelopmentEnvironment) {
+  var webpack = require('webpack');
+  var webpackDevMiddleware = require('webpack-dev-middleware');
+  var webpackHotMiddleware = require('webpack-hot-middleware');
+  var config = require('../webpack.config')
   var compiler = webpack(config);
   app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
   app.use(webpackHotMiddleware(compiler));

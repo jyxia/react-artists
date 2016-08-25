@@ -7,28 +7,38 @@
 * `npm install`
 * To start the development
   1. Run `npm start` or `npm run start`
-  2. Navigate to http://localhost:3000 in your browser of choice.
+  2. Your terminal should pop up a message like this:
+  ```message
+  Open up http://localhost:6001/ in your browser.
+  ```
+  the port number depends on the assignment from `cfenv`.
 * To lint your code
   1. Run `npm run lint`
 * To start production / build
   1. Run`npm run build`. Production files are all generated into [dist](./dist).
   2. Wait until `webpack` finishes building all files, then run `npm run web-server` to start node service.
-  3. Navigate to http://localhost:3000 or open `index.html` directly from [`dist`](./dist) in your browser of choice.
+  3. Navigate to http://localhost:6001 or open `index.html` directly from [`dist`](./dist) in your browser of choice.
 * To clean `dist`
   1. run `npm run clean`.
 
 > **Note:** In `dev` mode, `redux-logger` and webpack hot modules are included for development purpose. In `build` or `prod` mode, these dev tools are removed and `dist` folder gets cleaned every time.
 
+## Deploy to Blumix
+* Simply click this magi button
+
+  [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy)
+
+* Or clone this repo, open [manifest.xml](./manifest.xml), change `host` and `name` to _"yourAppName"_. Then use `cf cli` to push to Bluemix. (`cf push`)
 
 ## Overview
-#### Responsive design (Step 1)
+#### Responsive design
 * **`flex`** is used for responsive web designs.
 * **`autoprefixer`** takes care of `css` prefixers across different browsers.
 
-#### JS framework: React and Redux (Step 1 & 2)
+#### JS framework: React and Redux
 * See [src](./src) folder for the code and the structure.
 
-#### Error handling (please try)
+#### Error handling
 * Add error handlings for this project to improve user experience
   * Show **_"Loading"_** while there is an search HTTP request.
   * Show **_"no artists found"_** while there is no matched results based on the keywords.
@@ -36,9 +46,9 @@
 
 > **Note:**  If you search with **no keywords**, it simply renders the default page with default artists.
 
-#### Express (Step 2)
+#### Express
 * Builds node (API) services.
-  * Search API: http://localhost:3000/api/search
+  * Search API: `/api/search`
 * Provide web services, host static files (e.g. `index.html`).
 * All server-side code is in [server](./server) folder.
 
