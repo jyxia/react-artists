@@ -9,8 +9,9 @@
   1. Run `npm start` or `npm run start`
   2. Your terminal should pop up a message like this:
     ```message
-    Open up http://localhost:6001/ in your browser.
+      Open up http://localhost:6001/ in your browser.
     ```
+    
     the port number depends on the assignment from `cfenv`.
 * To lint your code
   1. Run `npm run lint`
